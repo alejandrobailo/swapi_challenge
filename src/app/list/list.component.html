@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <div class="navProp my-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" id="crews" (click)="updateChart('crews')">Crew</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="costInCredits" (click)="updateChart('costInCredits')">Cost in credits</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="cargoCapacity" (click)="updateChart('cargoCapacity')">Cargo capacity</a>
+            </li>
+            <li class=" nav-item">
+                <a class="nav-link" id="length" (click)="updateChart('length')">Length</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="hyperdriveRating" (click)="updateChart('hyperdriveRating')">Hyper drive rating</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="maxAtmospheringSpeed" (click)="updateChart('maxAtmospheringSpeed')">Max Atmosphering speed</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="passengers" (click)="updateChart('passengers')">Passengers</a>
+            </li>
+        </ul>
+    </div>
+    <div class="hidden">
+        <canvas id="canvas">{{chart}}</canvas>
+    </div>
+</div>

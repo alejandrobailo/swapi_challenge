@@ -1,14 +1,27 @@
-# Challenge
+# POWEN Challenge
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+
+To run it follow this steps:
+
+I add this: 
+apollo-angular 
+apollo-angular-link-http 
+apollo-client 
+apollo-cache-inmemory 
+graphql-tag 
+graphql 
+ng2-charts 
+chart.js 
+bootstrap
+
+So in the root of your folder run
+
+    npm install 
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 

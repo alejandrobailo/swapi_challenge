@@ -1,0 +1,12 @@
+
+.nav-item{
+    color: #aaa;
+}
+
+.nav-item:hover{
+    color: #f7f7f7;
+}
+
+div.hidden{
+    display: none;
+}

@@ -1,0 +1,23 @@
+.wrapper{
+    width: 90%;
+    min-width: 1080px;
+    height: auto;
+    margin: 2em auto;
+    border-radius: 18px;
+    background: #323643;
+    box-shadow:  23px 23px 46px #2b2e39, 
+                 -23px -23px 46px #3a3e4d;
+    padding: 4em;
+}
+
+.title{
+    margin-bottom: 1em;
+    color: #aaa;
+    font-weight: 100;
+}
+
+.title img{
+    width: 50px;
+    margin-right: .5em;
+    color: #aaa;
+}

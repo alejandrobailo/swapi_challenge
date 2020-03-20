@@ -28,7 +28,7 @@ export const options = {
         display: false
     },
     tooltips: {
-        position: 'average',
+        position: 'center',
     },
     scales: {
         xAxes: [

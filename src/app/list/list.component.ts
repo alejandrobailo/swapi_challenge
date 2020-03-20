@@ -76,6 +76,12 @@ export class ListComponent implements OnInit {
       this.maxAtmospheringSpeed = this.arrStarships.map(item => item.maxAtmospheringSpeed);
       this.passengers = this.arrStarships.map(item => item.passengers);
 
+      Chart.Tooltip.positioners.center = function (elements) {
+        const { x, y, base } = elements[0]._model;
+        const height = base - y;
+        return { x, y: y + height };
+      };
+
       /* Chart ini */
       this.chart = new Chart("canvas", {
         type: "bar",

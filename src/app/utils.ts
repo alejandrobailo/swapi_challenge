@@ -1,10 +1,8 @@
-import { utils } from 'protractor';
-
 export function sortData(arrLabels, arrData) {
-    let arrayOfObj = arrLabels.map((d, i) => {
+    let arrayOfObj = arrLabels.map((data, index) => {
         return {
-            label: d,
-            data: arrData[i] || 0
+            label: data,
+            data: arrData[index] || 0
         };
     });
 
@@ -15,9 +13,9 @@ export function sortData(arrLabels, arrData) {
     let newArrayLabel = [];
     let newArrayData = [];
 
-    arrSorted.forEach((d) => {
-        newArrayLabel.push(d.label);
-        newArrayData.push(d.data);
+    arrSorted.forEach((item) => {
+        newArrayLabel.push(item.label);
+        newArrayData.push(item.data);
     });
 
     return { newArrayData, newArrayLabel }

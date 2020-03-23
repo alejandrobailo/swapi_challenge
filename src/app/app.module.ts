@@ -24,7 +24,7 @@ import { ListComponent } from './list/list.component';
     HttpLinkModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [ListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -33,7 +33,9 @@ export class AppModule {
     httpLink: HttpLink
   ) {
     apollo.create({
-      link: httpLink.create({ uri: 'https://swapi.graph.cool/' }),
+      link: httpLink.create({
+        uri: 'https://swapi.graph.cool/'
+      }),
       cache: new InMemoryCache()
     })
   }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
-
 import gql from 'graphql-tag';
 
 import { Starship, Query } from '../types';
@@ -16,12 +14,9 @@ import * as Chart from 'chart.js';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
   starships: Observable<Starship[]>;
   arrStarships: Starship[];
-
   chart: Chart;
-
   /* PROPERTIES VARS */
   property: any;
   propertyId: string;
@@ -33,10 +28,6 @@ export class ListComponent implements OnInit {
   length: number[];
   maxAtmospheringSpeed: number[];
   passengers: number[];
-
-  /*CHAR OPTIONS */
-
-  /* OPTIONS */
 
   constructor(private apollo: Apollo) {
   }
@@ -65,7 +56,6 @@ export class ListComponent implements OnInit {
 
     /* Subscribe to obs */
     this.starships.subscribe((data) => {
-
       this.arrStarships = data;
       this.properties = this.arrStarships.map(item => item.name);
       this.crews = this.arrStarships.map(item => item.crew) //.sort((a, b) => b - a);
@@ -76,6 +66,7 @@ export class ListComponent implements OnInit {
       this.maxAtmospheringSpeed = this.arrStarships.map(item => item.maxAtmospheringSpeed);
       this.passengers = this.arrStarships.map(item => item.passengers);
 
+      /* Edit tooltip */
       Chart.Tooltip.positioners.center = function (elements) {
         const { x, y, base } = elements[0]._model;
         const height = base - y;
@@ -106,7 +97,6 @@ export class ListComponent implements OnInit {
     if (document.querySelector('.hidden') != null) {
       document.querySelector('.hidden').classList.remove('hidden');
     }
-
     document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
     document.getElementById(e).classList.add('active');
 

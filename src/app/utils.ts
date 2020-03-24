@@ -53,3 +53,10 @@ export const options = {
         ]
     }
 }
+
+export function updateData(chart, labels, propertyP, max: number, stepDiv: number) {
+    chart.data.datasets[0].data = sortData(labels, propertyP).newArrayData;
+    chart.data.labels = sortData(labels, propertyP).newArrayLabel;
+    chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, propertyP) / max;
+    chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, propertyP) / stepDiv;
+}

@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
 
 import { Starship, Query } from '../types';
-import { sortData, options } from '../utils'
+import { sortData, options, updateData } from '../utils'
 import { Observable } from 'rxjs';
 import * as Chart from 'chart.js';
 
@@ -90,7 +90,6 @@ export class ListComponent implements OnInit {
         options: options
       });
     });
-
   }
 
   updateChart(e) {
@@ -102,49 +101,27 @@ export class ListComponent implements OnInit {
 
     switch (e) {
       case 'crews':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.crews).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.crews).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, this.crews) / 1000
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, this.crews) / 10000
+        updateData(this.chart, this.properties, this.crews, 1000, 10000);
         break;
       case 'costInCredits':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.costInCredits).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.costInCredits).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, this.costInCredits) / 10000
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, this.costInCredits) / 100000
+        updateData(this.chart, this.properties, this.costInCredits, 10000, 100000);
         break;
       case 'length':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.length).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.length).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, this.length) / 50
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, this.length) / 500
+        updateData(this.chart, this.properties, this.length, 50, 500);
         break;
       case 'cargoCapacity':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.cargoCapacity).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.cargoCapacity).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, this.cargoCapacity) / 10000000
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, this.cargoCapacity) / 100000000
+        updateData(this.chart, this.properties, this.cargoCapacity, 10000000, 100000000);
         break;
       case 'hyperdriveRating':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.hyperdriveRating).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.hyperdriveRating).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, this.hyperdriveRating)
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, this.hyperdriveRating) / 10
+        updateData(this.chart, this.properties, this.hyperdriveRating, 1, 10);
         break;
       case 'maxAtmospheringSpeed':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.maxAtmospheringSpeed).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.maxAtmospheringSpeed).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, this.maxAtmospheringSpeed)
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.max.apply(null, this.maxAtmospheringSpeed) / 10
+        updateData(this.chart, this.properties, this.maxAtmospheringSpeed, 1, 10);
         break;
       case 'passengers':
-        this.chart.data.datasets[0].data = sortData(this.properties, this.passengers).newArrayData;
-        this.chart.data.labels = sortData(this.properties, this.passengers).newArrayLabel;
-        this.chart.options.scales.yAxes[0].ticks.max = Math.round(Math.max.apply(null, this.passengers) / 10000)
-        this.chart.options.scales.yAxes[0].ticks.stepSize = Math.round(Math.max.apply(null, this.passengers) / 100000)
+        updateData(this.chart, this.properties, this.passengers, 10000, 100000);
         break;
     }
     this.chart.update();
   }
-
 }

@@ -58,7 +58,7 @@ export class ListComponent implements OnInit {
     this.starships.subscribe((data) => {
       this.arrStarships = data;
       this.properties = this.arrStarships.map(item => item.name);
-      this.crews = this.arrStarships.map(item => item.crew) //.sort((a, b) => b - a);
+      this.crews = this.arrStarships.map(item => item.crew);
       this.costInCredits = this.arrStarships.map(item => item.costInCredits);
       this.cargoCapacity = this.arrStarships.map(item => item.cargoCapacity);
       this.hyperdriveRating = this.arrStarships.map(item => item.hyperdriveRating);

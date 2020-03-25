@@ -7,7 +7,7 @@ export function sortData(arrLabels, arrData) {
     });
 
     let arrSorted = arrayOfObj.sort((a, b) => {
-        return b.data > a.data;
+        return b.data - a.data;
     });
 
     let newArrayLabel = [];

@@ -94,7 +94,7 @@ export class ListComponent implements OnInit {
 
   updateChart(e) {
     this.close = false;
-    console.log(this.close, 'updatechart');
+
     if (document.querySelector('.hidden') != null && !this.close) {
       document.querySelector('#hidden').classList.remove('hidden');
     }
@@ -125,6 +125,7 @@ export class ListComponent implements OnInit {
         updateData(this.chart, this.properties, this.passengers, 10000, 100000);
         break;
     }
+
     this.chart.update();
   }
 

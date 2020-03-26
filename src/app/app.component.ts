@@ -14,6 +14,5 @@ export class AppComponent {
 
   handleClick() {
     this.value = !this.value;
-    console.log(this.value, 'papa');
   }
 }

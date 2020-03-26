@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'challenge';
+  value: boolean;
+
+  constructor() {
+    this.value = false;
+  }
+
+  handleClick() {
+    this.value = !this.value;
+    console.log(this.value, 'papa');
+  }
 }

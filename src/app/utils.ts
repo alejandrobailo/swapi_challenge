@@ -22,6 +22,7 @@ export function sortData(arrLabels, arrData) {
 }
 
 export const options = {
+    responsive: true,
     legend: {
         display: false
     },

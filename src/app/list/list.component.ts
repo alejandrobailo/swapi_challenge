@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
-
 import { Starship, Query } from '../types';
-import { sortData, options, updateData } from '../utils'
+import { options, updateData } from '../utils'
 import { Observable } from 'rxjs';
 import * as Chart from 'chart.js';
 
@@ -14,6 +13,7 @@ import * as Chart from 'chart.js';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  @Input() close: boolean
   starships: Observable<Starship[]>;
   arrStarships: Starship[];
   chart: Chart;
@@ -93,9 +93,12 @@ export class ListComponent implements OnInit {
   }
 
   updateChart(e) {
-    if (document.querySelector('.hidden') != null) {
-      document.querySelector('.hidden').classList.remove('hidden');
+    this.close = false;
+    console.log(this.close, 'updatechart');
+    if (document.querySelector('.hidden') != null && !this.close) {
+      document.querySelector('#hidden').classList.remove('hidden');
     }
+
     document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
     document.getElementById(e).classList.add('active');
 
@@ -123,5 +126,11 @@ export class ListComponent implements OnInit {
         break;
     }
     this.chart.update();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.close == true || changes.close.previousValue == true) {
+      document.querySelector('#hidden').classList.add('hidden');
+    }
   }
 }

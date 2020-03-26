@@ -21,3 +21,21 @@
     margin-right: .5em;
     color: #aaa;
 }
+
+.closeBtn{
+    float: right;
+    cursor: pointer;
+    transition: all .1s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.closeBtn:active{
+    color: #aaa;
+    transition: .1s;
+}

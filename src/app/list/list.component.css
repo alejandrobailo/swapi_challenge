@@ -7,6 +7,22 @@
     color: #f7f7f7;
 }
 
+div.open{
+    height: auto;
+    margin-top: 45%;
+    transition: all .8s;
+}
+
 div.hidden{
+    height: 0px;
+    margin-top: -50px;
+    transition: all .8s;
+}
+
+.canva{
+    margin-top: -40%;
+}
+
+.hiddenCanva{
     display: none;
 }

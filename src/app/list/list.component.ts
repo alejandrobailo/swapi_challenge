@@ -102,6 +102,12 @@ export class ListComponent implements OnInit {
     document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
     document.getElementById(e).classList.add('active');
 
+    setTimeout(() => {
+      if (document.querySelector('.hiddenCanva') != null && !this.close) {
+        document.querySelector('#hiddenCanva').classList.remove('hiddenCanva');
+      }
+    }, 800)
+
     switch (e) {
       case 'crews':
         updateData(this.chart, this.properties, this.crews, 1000, 10000);
@@ -132,6 +138,7 @@ export class ListComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.close == true || changes.close.previousValue == true) {
       document.querySelector('#hidden').classList.add('hidden');
+      document.querySelector('#hiddenCanva').classList.add('hiddenCanva');
     }
   }
 }

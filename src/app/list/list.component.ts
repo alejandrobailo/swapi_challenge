@@ -17,7 +17,8 @@ export class ListComponent implements OnInit {
   starships: Observable<Starship[]>;
   arrStarships: Starship[];
   chart: Chart;
-  /* PROPERTIES VARS */
+  closeBtn: any;
+  /* Property vars */
   property: any;
   propertyId: string;
   properties: string[];
@@ -30,6 +31,7 @@ export class ListComponent implements OnInit {
   passengers: number[];
 
   constructor(private apollo: Apollo) {
+    this.closeBtn = document.getElementById('closeBtn').style;
   }
 
   ngOnInit() {
@@ -108,6 +110,9 @@ export class ListComponent implements OnInit {
       }
     }, 800)
 
+    this.closeBtn.color = "#aaa";
+    this.closeBtn.cursor = "pointer";
+
     switch (e) {
       case 'crews':
         updateData(this.chart, this.properties, this.crews, 1000, 10000);
@@ -139,6 +144,8 @@ export class ListComponent implements OnInit {
     if (this.close == true || changes.close.previousValue == true) {
       document.querySelector('#hidden').classList.add('hidden');
       document.querySelector('#hiddenCanva').classList.add('hiddenCanva');
+      this.closeBtn.color = "#323643";
+      this.closeBtn.cursor = "default";
     }
   }
 }

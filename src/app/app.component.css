@@ -23,6 +23,7 @@
 }
 
 .closeBtn{
+    color: #323643;
     float: right;
     cursor: pointer;
     transition: all .1s;
@@ -36,6 +37,6 @@
 }
 
 .closeBtn:active{
-    color: #aaa;
+    color: white;
     transition: .1s;
 }

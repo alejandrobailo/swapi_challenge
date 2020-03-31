@@ -12,7 +12,10 @@ export class AppComponent {
   constructor() {
     this.value = false;
     this.initialColor = localStorage.getItem('color-mode')
-    document.documentElement.setAttribute('color-mode', this.initialColor);
+    
+    if(this.initialColor){
+      document.documentElement.setAttribute('color-mode', this.initialColor);
+    }
   }
 
   handleClick() {

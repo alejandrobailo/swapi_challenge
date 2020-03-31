@@ -1,5 +1,13 @@
 # POWEN Challenge
 
+## Features
+
+In addition to that who was asked, I implemented few features:
+    
+    - Change the color mode
+    - Close dynamically the chart window
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
 
 To run it follow this steps:

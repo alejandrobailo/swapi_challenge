@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, HostListener } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
@@ -14,10 +14,13 @@ import * as Chart from 'chart.js';
 })
 export class ListComponent implements OnInit {
   @Input() close: boolean
+  typeChart: string;
   starships: Observable<Starship[]>;
   arrStarships: Starship[];
   chart: Chart;
   closeBtn: any;
+  optionsBar: any;
+
   /* Property vars */
   property: any;
   propertyId: string;
@@ -29,9 +32,10 @@ export class ListComponent implements OnInit {
   length: number[];
   maxAtmospheringSpeed: number[];
   passengers: number[];
-
+  
   constructor(private apollo: Apollo) {
     this.closeBtn = document.getElementById('closeBtn').style;
+    this.typeChart = 'bar'
   }
 
   ngOnInit() {
@@ -77,13 +81,13 @@ export class ListComponent implements OnInit {
 
       /* Chart ini */
       this.chart = new Chart("canvas", {
-        type: "bar",
+        type: this.typeChart,
         data: {
           labels: this.properties,
           datasets: [
             {
               label: "Quantity",
-              data: [],
+              data: [1],
               backgroundColor: '#93deff',
               fill: false
             },
@@ -113,6 +117,7 @@ export class ListComponent implements OnInit {
     this.closeBtn.color = "#aaa";
     this.closeBtn.cursor = "pointer";
 
+    /* Update and short Data */
     switch (e) {
       case 'crews':
         updateData(this.chart, this.properties, this.crews, 1000, 10000);
@@ -138,8 +143,12 @@ export class ListComponent implements OnInit {
     }
 
     this.chart.update();
+    if(this.typeChart === 'bar'){
+      this.optionsBar = this.chart.options;
+    }
   }
 
+  /* Close function */
   ngOnChanges(changes: SimpleChanges): void {
     if (this.close == true || changes.close.previousValue == true) {
       document.querySelector('#hidden').classList.add('hidden');
@@ -150,6 +159,30 @@ export class ListComponent implements OnInit {
         this.closeBtn.color = "#d0e1e7";
       }
       this.closeBtn.cursor = "default";
+    }
+  }
+
+  /* Responsive Chart */
+  @HostListener('window:resize', ['$event']) 
+  onResize(event) {
+    let lastData = this.chart.data
+
+    if(event.target.innerWidth > 640){
+      this.chart.destroy();
+      this.typeChart = 'bar'
+      this.chart = new Chart("canvas", {
+        type: this.typeChart,
+        data: lastData,
+        options: this.optionsBar
+      });
+    }else{
+      this.chart.destroy();
+      this.typeChart = 'horizontalBar';
+      this.chart = new Chart("canvas", {
+        type: this.typeChart,
+        data: lastData,
+        options: options
+      });
     }
   }
 }

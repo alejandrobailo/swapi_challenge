@@ -30,4 +30,6 @@ body{
     background-color: var(--primary);
     position: relative;
     transition: all 0.2s ease-in;
+    overflow-x: hidden;
+    min-width: 375px;
 }

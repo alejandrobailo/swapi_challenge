@@ -1,6 +1,6 @@
 .wrapper{
+    position: relative;
     width: 90%;
-    min-width: 640px;
     height: auto;
     margin: 2em auto;
     border-radius: 18px;
@@ -27,7 +27,9 @@
 
 .closeBtn{
     color: var(--primary);
-    float: right;
+    position: absolute;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
     transition: all .1s;
     -webkit-tap-highlight-color: transparent;
@@ -42,7 +44,7 @@
 
 .boxMode{
     position: relative;
-    left: 170px;
+    left: 165px;
     top: 7px;
 }
 

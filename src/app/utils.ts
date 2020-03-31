@@ -23,6 +23,7 @@ export function sortData(arrLabels, arrData) {
 
 export const options = {
     responsive: true,
+    maintainAspectRatio: false,
     legend: {
         display: false
     },
@@ -35,6 +36,9 @@ export const options = {
                 display: true,
                 gridLines: {
                     display: false
+                },
+                ticks:{
+                    autoSkip: false
                 }
             }
         ],
@@ -45,7 +49,8 @@ export const options = {
                     beginAtZero: true,
                     min: 0,
                     max: 1000,
-                    stepSize: 100
+                    stepSize: 100,
+                    autoSkip: false
                 },
                 gridLines: {
                     display: false

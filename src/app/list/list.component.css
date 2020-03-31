@@ -1,10 +1,21 @@
 
 .nav-item{
-    color: #aaa;
+    color: var(--textColor);
 }
 
-.nav-item:hover{
-    color: #f7f7f7;
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+    color: var(--textColor2);
+    border-color: var(--textColor2);
+}
+
+.nav-link.active{
+    background-color: transparent;
+    border-color: var(--textColor2);
+    color: var(--textColor2);
+}
+
+.nav-tabs {
+    border-bottom: 1px solid var(--textColor);
 }
 
 div.open{

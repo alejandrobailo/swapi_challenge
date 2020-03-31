@@ -4,26 +4,29 @@
     height: auto;
     margin: 2em auto;
     border-radius: 18px;
-    background: #323643;
-    box-shadow:  23px 23px 46px #2b2e39, 
-                 -23px -23px 46px #3a3e4d;
+    background: var(--primary);
+    box-shadow:  23px 23px 46px var(--shadow1), 
+                 -23px -23px 46px var(--shadow2);
     padding: 4em;
+    transition: all 0.2s ease-in;
 }
 
 .title{
     margin-bottom: 1em;
-    color: #aaa;
+    color: var(--textColor);
     font-weight: 100;
+    transition: all 0.2s ease-in;
 }
 
 .title img{
     width: 50px;
     margin-right: .5em;
-    color: #aaa;
+    color: var(--textColor);
+    transition: all 0.2s ease-in;
 }
 
 .closeBtn{
-    color: #323643;
+    color: var(--primary);
     float: right;
     cursor: pointer;
     transition: all .1s;
@@ -34,9 +37,34 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: all 0.2s ease-in;
 }
 
-.closeBtn:active{
-    color: white;
-    transition: .1s;
+.boxMode{
+    position: relative;
+    left: 170px;
+    top: 7px;
+}
+
+.btnMode{
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--shadowGradient1), var(--shadowGradient2));
+    box-shadow:  4px 4px 8px var(--shadow1), 
+                 -4px -4px 8px var(--shadow1);
+    transition: all 0.2s ease-in;
+}
+
+.btnMode:first-of-type img{
+    transform: rotateZ(-45deg);
+}
+
+.btnMode:nth-of-type(2) img{
+    transform: rotateZ(45deg);
 }

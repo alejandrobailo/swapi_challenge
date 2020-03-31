@@ -1,5 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+:root[color-mode="dark"] {
+    --primary: #323643;
+    --shadow1: #2b2e39;
+    --shadow2: #3a3e4d;
+    --shadowGradient1: #363a48;
+    --shadowGradient2: #2d313c;
+    --textColor: #aaa;
+    --textColor2: #f7f7f7;
+}
+
+:root[color-mode="light"] {
+    --primary: #d0e1e7;
+    --shadow1: #b1bfc4;
+    --shadow2: #efffff;;
+    --shadowGradient1: #dff1f7;
+    --shadowGradient2: #bbcbd0;
+    --textColor: #3b4e63;
+    --textColor2: #304155;
+}
+
+:root[color-mode='dark'] .dark{
+    display: none;
+}
+
+:root[color-mode='light'] .light{
+    display: none;
+}
+
 body{
-    background-color: #323643;
+    background-color: var(--primary);
     position: relative;
+    transition: all 0.2s ease-in;
 }

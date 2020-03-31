@@ -144,7 +144,11 @@ export class ListComponent implements OnInit {
     if (this.close == true || changes.close.previousValue == true) {
       document.querySelector('#hidden').classList.add('hidden');
       document.querySelector('#hiddenCanva').classList.add('hiddenCanva');
-      this.closeBtn.color = "#323643";
+      if(localStorage.getItem('color-mode') === 'dark'){
+        this.closeBtn.color = "#323643";
+      }else{
+        this.closeBtn.color = "#d0e1e7";
+      }
       this.closeBtn.cursor = "default";
     }
   }

@@ -1,4 +1,11 @@
-# POWEN Challenge
+# SWAPI GraphQL App
+
+## Dark Mode
+![dark-mode](https://fotos.subefotos.com/e4bd19c9070b44a502f3fc025a17bccdo.png)
+
+## Light Mode
+![Light-mode](https://fotos.subefotos.com/883435ed74a45e9b7e775706ee8cd882o.png)
+
 
 ## Features
 
